@@ -130,6 +130,20 @@ class RLAPI {
 
     }
 
+
+    getUserinfo() { 
+        const result = {};
+        const platform = this._raw.data.platformInfo;
+
+        result['platform']  = platform.platformSlug; 
+        result['uuid']      = platform.platformUserId; 
+        result['name']      = platform.platformUserHandle;
+        result['userid']    = platform.platformUserIdentifier;
+        result['avatar']    = platform.avatarUrl;
+
+        return result;
+    }
+
     get raw() { return this._raw; }
 }
 

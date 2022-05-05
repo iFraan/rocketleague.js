@@ -15,6 +15,18 @@ const { RLAPI, PLATFORM } = require('rocketleague.js')
 
 try {
     const user = await RLAPI.fetchUser(PLATFORM.Steam, 'iFraan_')
+	
+
+    console.log('User:', user.getUserinfo())
+		/*
+			User: {
+			platform: 'steam',
+			uuid: null,
+			name: 'fran',
+			userid: '76561198137433783',
+			avatar: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b5/b5ac48b867b9ac1935fc564eaf1b43e8ac326e24_full.jpg'
+			}
+		*/
 
     console.log('Overview:',    user.overview())
         /*
