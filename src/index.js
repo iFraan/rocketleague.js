@@ -129,8 +129,10 @@ class RLAPI {
         return result;
 
     }
-
-
+    /**
+     * Get userinfo from the platform
+     * @returns userinfo
+     */
     getUserinfo() { 
         const result = {};
         const platform = this._raw.data.platformInfo;
