@@ -1,0 +1,12 @@
+{
+  "name": "rocketleague.js",
+  "version": "1.0.0",
+  "description": "Wrapper for rocket league stats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "keywords": ["rocket-league-api", "rocket-league", "rl", "stats", "rocketleague.js", "api"],
+  "author": "iFraan_",
+  "license": "GPLv3"
+}
