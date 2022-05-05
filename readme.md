@@ -18,60 +18,60 @@ try {
 	
 
     console.log('User:', user.getUserinfo())
-		/*
-			User: {
-			platform: 'steam',
-			uuid: null,
-			name: 'fran',
-			userid: '76561198137433783',
-			avatar: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b5/b5ac48b867b9ac1935fc564eaf1b43e8ac326e24_full.jpg'
-			}
-		*/
+	/*
+	User: {
+		platform: 'steam',
+		uuid: null,
+		name: 'fran',
+		userid: '76561198137433783',
+		avatar: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b5/b5ac48b867b9ac1935fc564eaf1b43e8ac326e24_full.jpg'
+	}
+	*/
 
     console.log('Overview:',    user.overview())
-        /*
-        Overview {
-            wins: 131,
-            goals: 209,
-            mVPs: 14,
-            saves: 108,
-            assists: 125,
-            shots: 412,
-            goalShotRatio: 50.728155339805824,
-            score: 24435.3,
-            seasonRewardLevel: 0,
-            seasonRewardWins: 0,
-            tRNRating: 0
-         }
-        */
+    /*
+    Overview {
+        wins: 131,
+        goals: 209,
+        mVPs: 14,
+        saves: 108,
+        assists: 125,
+        shots: 412,
+        goalShotRatio: 50.728155339805824,
+        score: 24435.3,
+        seasonRewardLevel: 0,
+        seasonRewardWins: 0,
+        tRNRating: 0
+    }
+    */
 
     console.log('2v2: ',        user.get2v2())
-        /*
-        2v2 {
-          rank: 'Silver III',
-          tier: 6,
-          division: 2,
-          matchesPlayed: 0,
-          winStreak: 5,
-          rating: 443
-         }
-        */
+    /*
+    2v2 {
+        rank: 'Silver III',
+        tier: 6,
+        division: 2,
+        matchesPlayed: 0,
+        winStreak: 5,
+        rating: 443
+    }
+    */
     console.log('3v3: ',        user.get3v3())
-        /*
-        3v3:  {
-          rank: 'Gold I',
-          tier: 7,
-          division: 3,
-          matchesPlayed: 0,
-          winStreak: 3,
-          rating: 520
-         }
-        */
+    /*
+    3v3:  {
+        rank: 'Gold I',
+        tier: 7,
+        division: 3,
+        matchesPlayed: 0,
+        winStreak: 3,
+        rating: 520
+    }
+    */
     console.log('ALL: ',        user.getData())
-        /* 
-         ALL  {
-          overview: {
-            wins: 131,
+    /* 
+    ALL  {
+    	overview: {
+        	wins: 131,
             goals: 209,
             mVPs: 14,
             saves: 108,
@@ -82,8 +82,8 @@ try {
             seasonRewardLevel: 0,
             seasonRewardWins: 0,
             tRNRating: 0
-          },
-          gamemodes: {
+        },
+        gamemodes: {
             'Un-Ranked': {
               rank: 'Unranked',
               tier: 0,
@@ -132,9 +132,9 @@ try {
               winStreak: 3,
               rating: 477
             }
-          }
         }
-        */
+    }
+    */
 } catch (e) {
     console.log(e)
     /* Error: We could not find the player [player]. */
