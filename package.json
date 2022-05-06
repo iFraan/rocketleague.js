@@ -1,12 +1,28 @@
 {
   "name": "rocketleague.js",
-  "version": "1.0.3",
+  "version": "1.0.33",
   "description": "Wrapper for rocket league stats.",
   "main": "index.js",
   "scripts": {
     "test": "test.js"
   },
-  "keywords": ["rocket-league-api", "rocket-league", "rl", "stats", "rocketleague.js", "api"],
-  "author": "iFraan_",
-  "license": "GPLv3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iFraan/rocketleague.js.git"
+  },
+  "keywords": [
+    "rocket-league-api",
+    "rocket-league",
+    "rl",
+    "stats",
+    "rocketleague.js",
+    "api",
+    "rocket league"
+  ],
+  "author": "ifraan_",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/iFraan/rocketleague.js/issues"
+  },
+  "homepage": "https://github.com/iFraan/rocketleague.js#readme"
 }
