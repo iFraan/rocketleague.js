@@ -1,7 +1,12 @@
-# RocketLeague.js
-## This a wrapper/scrapper of the TRNetwork site with rocket league stats.
-
-There are no dependencies nor API key required.
+<div align="center">
+	<h1>RocketLeague.js</h1>
+	<a href="https://www.npmjs.com/package/rocketleague.js"><img src="https://badgen.net/npm/v/rocketleague.js?color=red" alt="NPM-Version"/></a>
+	<a href="https://www.npmjs.com/package/rocketleague.js"><img src="https://badgen.net/npm/dt/rocketleague.js?color=red" alt="NPM-Downloads"/></a>
+	<a href="https://github.com/iFraan/rocketleague.js"><img src="https://badgen.net/github/stars/iFraan/rocketleague.js?color=green" alt="Github Stars"/></a>
+	<a href="https://github.com/iFraan/rocketleague.js/issues"><img src="https://badgen.net/github/issues/iFraan/rocketleague.js?color=green" alt="Issues"/></a>
+	<h2>This a wrapper/scrapper of the TRNetwork site with <b>Rocket League</b> stats.</h2>
+	<h3>There are no dependencies nor API key required.</h3>
+</div>
 
 To install use:
 ```shell
