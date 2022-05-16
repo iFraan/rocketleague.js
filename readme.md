@@ -146,3 +146,5 @@ try {
 	/* Error: We could not find the player [player]. */
 }
 ```
+# Disclaimer
+This project is fully for educational purposes and if you want to use the valorant api in a production/commertial enviroment you should ask for one at [Rocket League Support](https://support.rocketleague.com/hc/en-us) or email the guys at [TRNetwork](https://tracker.gg/).
