@@ -34,6 +34,42 @@ export type TrackerMetadata = {
     currentSeason: number;
 };
 
+type SegmentStat = {
+    rank: number | unknown | null;
+    percentile: unknown | null;
+    displayName: string;
+    displayCategory: string;
+    category: string;
+    description: unknown | null;
+    metadata: {};
+    value: number | string;
+    displayValue: string;
+    displayType: string;
+};
+
+type SegmentOverviewStats = {
+    wins: SegmentStat;
+    goals: SegmentStat;
+    mVPs: SegmentStat;
+    saves: SegmentStat;
+    assists: SegmentStat;
+    shots: SegmentStat;
+    goalShotRatio: SegmentStat;
+    score: SegmentStat;
+    seasonRewardLevel: SegmentStat;
+    seasonRewardWins: SegmentStat;
+    tRNRating: SegmentStat;
+};
+
+type SegmentPlaylistStats = {
+    tier: SegmentStat;
+    division: SegmentStat;
+    matchesPlayed: SegmentStat;
+    winStreak: SegmentStat;
+    rating: SegmentStat;
+    peakRating: SegmentStat;
+};
+
 export type Segments = {
     type: 'overview' | 'playlist';
     attributes?: {
@@ -44,7 +80,7 @@ export type Segments = {
     metadata?: {
         name: string;
     };
-    stats: any;
+    stats: SegmentOverviewStats | SegmentPlaylistStats;
     expiryDate: string;
 };
 
