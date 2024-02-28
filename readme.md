@@ -21,7 +21,7 @@ const { API, PLATFORM } = require('rocketleague.js')
 
 try {
 	
-	const user = await API.fetchUser(PLATFORM.Steam, 'iFraan_')
+	const user = await API.fetchUser(PLATFORM.Epic, 'iFraan')
 	/* Platform can be Steam, Epic, Playstation or Xbox */
 	
 	console.log('User:', user.getUserinfo())
@@ -148,4 +148,4 @@ try {
 }
 ```
 # Disclaimer
-This project is fully for educational purposes and if you want to use the valorant api in a production/commertial enviroment you should ask for one at [Rocket League Support](https://support.rocketleague.com/hc/en-us) or email the guys at [TRNetwork](https://tracker.gg/).
+This project is fully for educational purposes and if you want to use the rocketleague api in a production/commertial enviroment you should ask for one at [Rocket League Support](https://support.rocketleague.com/hc/en-us) or email the guys at [TRNetwork](https://tracker.gg/).
