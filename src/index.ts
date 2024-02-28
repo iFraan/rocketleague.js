@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import { Platform } from './types';
+import { GenericOptions, Platform } from './types';
 
 const PLATFORM = {
     Steam: 'steam',
@@ -23,6 +23,7 @@ const fetchData = (url: string) =>
 class API {
     platform: Platform;
     username: string;
+    _raw: any; // TODO: type this
 
     constructor(platform: Platform, username: string) {
         this.platform = platform;
@@ -36,14 +37,9 @@ class API {
         return instance;
     }
 
-    /**
-     * Overview
-     * @param {boolean?} options.raw raw data
-     * @returns General stats of the player
-     */
-    overview(options = {}) {
+    overview(options: GenericOptions = {}) {
         const result = {};
-        const raw = options.raw || false;
+        const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.type == 'overview');
         if (raw) result._raw = data;
         const keys = Object.keys(data.stats);
@@ -59,9 +55,9 @@ class API {
      * @param {boolean?} options.raw raw data
      * @returns Ranked 2v2 stats of the player
      */
-    get2v2(options = {}) {
+    get2v2(options: GenericOptions = {}) {
         const result = {};
-        const raw = options.raw || false;
+        const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.metadata.name == 'Ranked Doubles 2v2');
         if (raw) result._raw = data;
         const keys = Object.keys(data.stats);
@@ -73,14 +69,9 @@ class API {
         return result;
     }
 
-    /**
-     * 3v3
-     * @param {boolean?} options.raw raw data
-     * @returns Ranked 3v3 stats of the player
-     */
-    get3v3(options = {}) {
+    get3v3(options: GenericOptions = {}) {
         const result = {};
-        const raw = options.raw || false;
+        const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.metadata.name == 'Ranked Standard 3v3');
         if (raw) result._raw = data;
         const keys = Object.keys(data.stats);
