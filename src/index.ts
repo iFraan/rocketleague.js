@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 import { GenericOptions, OverviewStats, Platform, PlaylistStats } from './types/internal';
-import { TrackerResponse } from './types/tracker';
+import { SegmentOverviewStats, SegmentPlaylistStats, TrackerResponse } from './types/tracker';
 
 const PLATFORM = {
     Steam: 'steam',
@@ -43,28 +43,21 @@ class API {
         const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.type == 'overview');
         if (raw) result._raw = data;
-        const keys = Object.keys(data.stats);
-        for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
+        const stats = data.stats as SegmentOverviewStats;
+        for (const key in stats) {
             result[key] = data.stats[key].value;
         }
         return result;
     }
 
-    /**
-     * 2v2
-     * @param {boolean?} options.raw raw data
-     * @returns Ranked 2v2 stats of the player
-     */
     get2v2(options: GenericOptions = {}) {
         const result = {} as PlaylistStats;
         const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.metadata.name == 'Ranked Doubles 2v2');
+        const stats = data.stats as SegmentPlaylistStats;
         if (raw) result._raw = data;
-        const keys = Object.keys(data.stats);
-        result['rank'] = data.stats.tier.metadata.name;
-        for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
+        result.rank = stats.tier.metadata.name;
+        for (const key in stats) {
             result[key] = data.stats[key].value;
         }
         return result;
