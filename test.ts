@@ -1,8 +1,8 @@
-const { RLAPI, PLATFORM } = require('./index');
+import { API, PLATFORM } from './src/index';
 
-m = async () => {
+const test = async () => {
     try {
-        const user = await RLAPI.fetchUser(PLATFORM.Steam, 'iFraan_');
+        const user = await API.fetchUser(PLATFORM.Steam, 'iFraan_');
         console.log('User:', user.getUserinfo());
         console.log('Overview:', user.overview());
         console.log('2v2: ', user.get2v2());
@@ -13,4 +13,4 @@ m = async () => {
     }
 };
 
-m();
+test();
