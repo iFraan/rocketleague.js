@@ -31,3 +31,12 @@ export type PlaylistStats = {
     peakRating: number | null;
     _raw?: Segments;
 };
+
+export type GamemodesStats = {
+    [playlist: string]: PlaylistStats;
+};
+
+export type AllStats = {
+    overview: OverviewStats;
+    gamemodes: GamemodesStats;
+};

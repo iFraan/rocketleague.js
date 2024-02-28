@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import { GenericOptions, OverviewStats, Platform, PlaylistStats } from './types/internal';
+import { AllStats, GenericOptions, OverviewStats, Platform, PlaylistStats } from './types/internal';
 import { SegmentOverviewStats, SegmentPlaylistStats, TrackerResponse } from './types/tracker';
 
 const PLATFORM = {
@@ -64,37 +64,30 @@ class API {
     }
 
     get3v3(options: GenericOptions = {}) {
-        const result: any = {};
+        const result = {} as PlaylistStats;
         const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.metadata.name == 'Ranked Standard 3v3');
+        const stats = data.stats as SegmentPlaylistStats;
         if (raw) result._raw = data;
-        const keys = Object.keys(data.stats);
-        result['rank'] = data.stats.tier.metadata.name;
-        for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
+        result.rank = stats.tier.metadata.name;
+        for (const key in stats) {
             result[key] = data.stats[key].value;
         }
         return result;
     }
 
-    /**
-     * Get all data
-     * @returns Formated json of all available player data
-     */
     getData() {
-        const result = {};
-        result['overview'] = this.overview();
-        result['gamemodes'] = {};
+        const result = {} as AllStats;
+        result.overview = this.overview();
+        result.gamemodes = {};
         const playlists = this._raw.data.segments.filter((x) => x.type === 'playlist');
-        for (let i = 0; i < playlists.length; i++) {
-            const p = playlists[i];
-            if (p) {
-                const keys = Object.keys(p.stats);
-                result['gamemodes'][p.metadata.name] = {};
-                result['gamemodes'][p.metadata.name]['rank'] = p.stats.tier.metadata.name;
-                for (let i = 0; i < keys.length; i++) {
-                    const key = keys[i];
-                    result['gamemodes'][p.metadata.name][key] = p.stats[key].value;
+        for (const playlist of playlists) {
+            if (playlist) {
+                const stats = playlist.stats as SegmentPlaylistStats;
+                result.gamemodes[playlist.metadata.name] = {} as PlaylistStats;
+                result.gamemodes[playlist.metadata.name]['rank'] = stats.tier.metadata.name;
+                for (const key in playlist.stats) {
+                    result.gamemodes[playlist.metadata.name][key] = stats[key].value;
                 }
             }
         }
