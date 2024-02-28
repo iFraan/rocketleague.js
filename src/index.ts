@@ -7,11 +7,11 @@ const PLATFORM = {
     Xbox: 'xbl'
 } as const;
 
-const baseUrl = `https://api.tracker.gg/api/v2/rocket-league/standard/profile/{PLATFORM}/{USERNAME}`
+const BASE_URL = `https://api.tracker.gg/api/v2/rocket-league/standard/profile/{PLATFORM}/{USERNAME}`;
 
-const fetchData = (url) =>
+const fetchData = (url: string) =>
     new Promise((resolve, reject) => {
-        exec(`curl --max-time 5 --user-agent 'Chrome/79' --url ${url}`, (err, result, stderr) => {
+        exec(`curl --max-time 5 --user-agent 'Chrome/121' --url ${url}`, (err, result, stderr) => {
             if (!result) {
                 reject(err);
             }
@@ -39,7 +39,7 @@ class RLAPI {
      */
     static async fetchUser(platform, username) {
         const API = new RLAPI(platform, username);
-        API._raw = await fetchData(baseUrl.replace('{PLATFORM}', platform).replace('{USERNAME}', username));
+        API._raw = await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username));
         if (API._raw.errors) throw new Error(API._raw.errors[0].message);
         return API;
     }
