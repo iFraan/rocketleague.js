@@ -2,7 +2,7 @@ import { API, PLATFORM } from './src/index';
 
 const test = async () => {
     try {
-        const user = await API.fetchUser(PLATFORM.Steam, 'iFraan_');
+        const user = await API.fetchUser(PLATFORM.Epic, 'iFraan');
         console.log('User:', user.getUserinfo());
         console.log('Overview:', user.overview());
         console.log('2v2: ', user.get2v2());
