@@ -1,5 +1,6 @@
 import { exec } from 'child_process';
-import { GenericOptions, Platform } from './types/internal';
+import { GenericOptions, OverviewStats, Platform, PlaylistStats } from './types/internal';
+import { TrackerResponse } from './types/tracker';
 
 const PLATFORM = {
     Steam: 'steam',
@@ -23,7 +24,7 @@ const fetchData = (url: string) =>
 class API {
     platform: Platform;
     username: string;
-    _raw: any; // TODO: type this
+    _raw: TrackerResponse;
 
     constructor(platform: Platform, username: string) {
         this.platform = platform;
@@ -32,14 +33,13 @@ class API {
 
     static async fetchUser(platform: Platform, username: string) {
         const instance = new API(platform, username);
-        instance._raw = await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username));
-        console.log('RESPONSE: ', JSON.stringify(instance._raw));
-        if (instance._raw.errors) throw new Error(instance._raw.errors[0].message);
+        instance._raw = (await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username))) as TrackerResponse;
+        if (!!instance._raw.errors?.length) throw new Error(instance._raw.errors[0].message);
         return instance;
     }
 
     overview(options: GenericOptions = {}) {
-        const result: any = {};
+        const result = {} as OverviewStats;
         const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.type == 'overview');
         if (raw) result._raw = data;
@@ -57,7 +57,7 @@ class API {
      * @returns Ranked 2v2 stats of the player
      */
     get2v2(options: GenericOptions = {}) {
-        const result: any = {};
+        const result = {} as PlaylistStats;
         const raw = options.raw ?? false;
         const data = this._raw.data.segments.find((x) => x.metadata.name == 'Ranked Doubles 2v2');
         if (raw) result._raw = data;
