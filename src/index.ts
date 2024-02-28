@@ -1,10 +1,11 @@
-import { exec } from 'child_process'
+import { exec } from 'child_process';
+import { Platform } from './types';
 
 const PLATFORM = {
     Steam: 'steam',
     Epic: 'epic',
     Playstation: 'psn',
-    Xbox: 'xbl'
+    Xbox: 'xbl',
 } as const;
 
 const BASE_URL = `https://api.tracker.gg/api/v2/rocket-league/standard/profile/{PLATFORM}/{USERNAME}`;
@@ -19,14 +20,16 @@ const fetchData = (url: string) =>
         });
     });
 
-class RLAPI {
+class API {
+    platform: string;
+    username: string;
     /**
      * Use RLAPI.fetchUser instead.
      * @param {string} platform
      * @param {string} username
      * @private // idk if it does something outside of typescript, but there it is
      */
-    constructor(platform, username) {
+    constructor(platform: Platform, username: string) {
         this.platform = platform;
         this.username = username;
     }
@@ -146,7 +149,8 @@ class RLAPI {
     }
 }
 
-module.exports = {
-    RLAPI,
-    PLATFORM
-}
+export {
+    API as RLAPI, // Compability
+    API,
+    PLATFORM,
+};
