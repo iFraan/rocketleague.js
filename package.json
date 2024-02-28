@@ -1,43 +1,43 @@
 {
-  "name": "rocketleague.js",
-  "version": "1.2.0",
-  "description": "Wrapper for rocket league stats.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test": "ts-node test.ts",
-    "build": "tsup",
-    "start": "node dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iFraan/rocketleague.js.git"
-  },
-  "keywords": [
-    "rocket-league-api",
-    "rocket-league",
-    "rl",
-    "stats",
-    "rocketleague.js",
-    "api",
-    "rocket league",
-    "trn",
-    "trnetwork"
-  ],
-  "author": "ifraan_",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/iFraan/rocketleague.js/issues"
-  },
-  "homepage": "https://github.com/iFraan/rocketleague.js#readme",
-  "devDependencies": {
-    "@types/node": "^20.11.21",
-    "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
-    "typescript": "^5.3.3"
-  }
+    "name": "rocketleague.js",
+    "version": "1.3.0",
+    "description": "Wrapper for rocket league stats.",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "test": "ts-node test.ts",
+        "build": "tsup",
+        "start": "node dist/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iFraan/rocketleague.js.git"
+    },
+    "keywords": [
+        "rocket-league-api",
+        "rocket-league",
+        "rl",
+        "stats",
+        "rocketleague.js",
+        "api",
+        "rocket league",
+        "trn",
+        "trnetwork"
+    ],
+    "author": "ifraan_",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/iFraan/rocketleague.js/issues"
+    },
+    "homepage": "https://github.com/iFraan/rocketleague.js#readme",
+    "devDependencies": {
+        "@types/node": "^20.11.21",
+        "ts-node": "^10.9.2",
+        "tsup": "^8.0.2",
+        "typescript": "^5.3.3"
+    }
 }
