@@ -47,7 +47,7 @@ type SegmentStat = {
     displayType: string;
 };
 
-type SegmentOverviewStats = {
+export type SegmentOverviewStats = {
     wins: SegmentStat;
     goals: SegmentStat;
     mVPs: SegmentStat;
@@ -61,7 +61,7 @@ type SegmentOverviewStats = {
     tRNRating: SegmentStat;
 };
 
-type SegmentPlaylistStats = {
+export type SegmentPlaylistStats = {
     tier: SegmentStat;
     division: SegmentStat;
     matchesPlayed: SegmentStat;
