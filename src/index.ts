@@ -21,30 +21,19 @@ const fetchData = (url: string) =>
     });
 
 class API {
-    platform: string;
+    platform: Platform;
     username: string;
-    /**
-     * Use RLAPI.fetchUser instead.
-     * @param {string} platform
-     * @param {string} username
-     * @private // idk if it does something outside of typescript, but there it is
-     */
+
     constructor(platform: Platform, username: string) {
         this.platform = platform;
         this.username = username;
     }
 
-    /**
-     * Initialize the wrapper
-     * @param {string} platform
-     * @param {string} username
-     * @returns RLAPI instance
-     */
-    static async fetchUser(platform, username) {
-        const API = new RLAPI(platform, username);
-        API._raw = await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username));
-        if (API._raw.errors) throw new Error(API._raw.errors[0].message);
-        return API;
+    static async fetchUser(platform: Platform, username: string) {
+        const instance = new API(platform, username);
+        instance._raw = await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username));
+        if (instance._raw.errors) throw new Error(instance._raw.errors[0].message);
+        return instance;
     }
 
     /**
