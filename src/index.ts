@@ -17,7 +17,12 @@ const fetchData = (url: string) =>
             if (!result) {
                 reject(err);
             }
-            resolve(JSON.parse(result));
+            try {
+                const jsonResult = JSON.parse(result);
+                resolve(jsonResult);
+            } catch (error) {
+                reject(error);
+            }
         });
     });
 
