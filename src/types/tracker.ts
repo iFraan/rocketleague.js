@@ -41,7 +41,10 @@ type SegmentStat = {
     displayCategory: string;
     category: string;
     description: unknown | null;
-    metadata: {};
+    metadata: {
+        name?: string;
+        iconUrl?: string;
+    };
     value: number | string;
     displayValue: string;
     displayType: string;
