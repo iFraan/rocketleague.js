@@ -1,10 +1,17 @@
 {
   "name": "rocketleague.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Wrapper for rocket league stats.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "test.js"
+    "test": "ts-node test.ts",
+    "build": "tsup",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +24,19 @@
     "stats",
     "rocketleague.js",
     "api",
-    "rocket league"
+    "rocket league",
+    "trn",
+    "trnetwork"
   ],
   "author": "ifraan_",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/iFraan/rocketleague.js/issues"
   },
-  "homepage": "https://github.com/iFraan/rocketleague.js#readme"
+  "homepage": "https://github.com/iFraan/rocketleague.js#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
 }
