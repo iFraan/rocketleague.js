@@ -17,11 +17,11 @@ npm i rocketleague.js
 
 Example code: _(Feel free to use my steam username for testing)_
 ```js
-const { RLAPI, PLATFORM } = require('rocketleague.js')
+const { API, PLATFORM } = require('rocketleague.js')
 
 try {
 	
-	const user = await RLAPI.fetchUser(PLATFORM.Steam, 'iFraan_')
+	const user = await API.fetchUser(PLATFORM.Steam, 'iFraan_')
 	/* Platform can be Steam, Epic, Playstation or Xbox */
 	
 	console.log('User:', user.getUserinfo())
