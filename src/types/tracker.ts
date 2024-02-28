@@ -3,7 +3,7 @@ export type TrackerPlatformInfo = {
     platformUserId: string;
     platformUserHandle: string;
     platformUserIdentifier: string;
-    avatarUrl: string;
+    avatarUrl: string | null;
     additionalParameters: unknown | null;
 };
 

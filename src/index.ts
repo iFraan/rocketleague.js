@@ -1,5 +1,5 @@
 import { exec } from 'child_process';
-import { AllStats, GenericOptions, OverviewStats, Platform, PlaylistStats } from './types/internal';
+import { AllStats, GenericOptions, OverviewStats, Platform, PlaylistStats, Userinfo } from './types/internal';
 import { SegmentOverviewStats, SegmentPlaylistStats, TrackerResponse } from './types/tracker';
 
 const PLATFORM = {
@@ -94,19 +94,16 @@ class API {
 
         return result;
     }
-    /**
-     * Get userinfo from the platform
-     * @returns userinfo
-     */
+
     getUserinfo() {
-        const result = {};
+        const result = {} as Userinfo;
         const platform = this._raw.data.platformInfo;
 
-        result['platform'] = platform.platformSlug;
-        result['uuid'] = platform.platformUserId;
-        result['name'] = platform.platformUserHandle;
-        result['userid'] = platform.platformUserIdentifier;
-        result['avatar'] = platform.avatarUrl;
+        result.platform = platform.platformSlug;
+        result.uuid = platform.platformUserId;
+        result.name = platform.platformUserHandle;
+        result.userid = platform.platformUserIdentifier;
+        result.avatar = platform.avatarUrl;
 
         return result;
     }

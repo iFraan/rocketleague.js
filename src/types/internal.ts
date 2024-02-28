@@ -1,4 +1,4 @@
-import { Segments } from './tracker';
+import { Segments, TrackerPlatformInfo } from './tracker';
 
 export type Platform = 'steam' | 'epic' | 'psn' | 'xbl';
 
@@ -39,4 +39,12 @@ export type GamemodesStats = {
 export type AllStats = {
     overview: OverviewStats;
     gamemodes: GamemodesStats;
+};
+
+export type Userinfo = {
+    platform: TrackerPlatformInfo['platformSlug'];
+    uuid: TrackerPlatformInfo['platformUserId'];
+    name: TrackerPlatformInfo['platformUserHandle'];
+    userid: TrackerPlatformInfo['platformUserIdentifier'];
+    avatar: TrackerPlatformInfo['avatarUrl'];
 };
