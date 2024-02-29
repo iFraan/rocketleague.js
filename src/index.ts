@@ -13,7 +13,7 @@ const BASE_URL = `https://api.tracker.gg/api/v2/rocket-league/standard/profile/{
 
 const fetchData = (url: string) =>
     new Promise((resolve, reject) => {
-        exec(`curl --max-time 5 --user-agent 'Chrome/121' --url ${url}`, (err, result, stderr) => {
+        exec(`curl --max-time 5 --user-agent 'Chrome/121' --url ${url}`, (err, result) => {
             if (!result) {
                 reject(err);
             }
@@ -39,7 +39,7 @@ class API {
     static async fetchUser(platform: Platform, username: string) {
         const instance = new API(platform, username);
         instance._raw = (await fetchData(BASE_URL.replace('{PLATFORM}', platform).replace('{USERNAME}', username))) as TrackerResponse;
-        if (!!instance._raw.errors?.length) throw new Error(instance._raw.errors[0].message);
+        if (instance._raw.errors?.length > 0) throw new Error(instance._raw.errors[0].message);
         return instance;
     }
 
