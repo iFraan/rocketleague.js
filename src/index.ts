@@ -13,13 +13,14 @@ const BASE_URL = `https://api.tracker.gg/api/v2/rocket-league/standard/profile/{
 
 const fetchData = (url: string) =>
     new Promise((resolve, reject) => {
-        exec(`curl --max-time 5 --user-agent 'Chrome/121' --url ${url}`, (err, result) => {
+        const encodedUrl = new URL(url);
+        exec(`curl --max-time 5 --user-agent 'Chrome/121' --url ${encodedUrl.toString()}`, (err, result) => {
             if (!result) {
                 reject(err);
             }
             try {
-                const jsonResult = JSON.parse(result);
-                resolve(jsonResult);
+                const data = JSON.parse(result);
+                resolve(data);
             } catch (error) {
                 reject(error);
             }
